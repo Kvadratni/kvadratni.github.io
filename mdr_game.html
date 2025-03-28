@@ -2,6 +2,18 @@
 <html>
 
 <head>
+  <!-- Add Google Sign-In API -->
+  <script src="https://accounts.google.com/gsi/client" async defer></script>
+  <meta name="google-signin-client_id" content="YOUR_GOOGLE_CLIENT_ID.apps.googleusercontent.com">
+  <script>
+    // Initialize Google Sign-In
+    window.onGoogleLibraryLoad = function () {
+      google.accounts.id.initialize({
+        client_id: 'YOUR_GOOGLE_CLIENT_ID.apps.googleusercontent.com',
+        callback: handleGoogleSignIn
+      });
+    };
+  </script>
   <title>Lumon Industries - MDR Terminal</title>
   <script>
     // Predefined list of coastal locations
@@ -62,6 +74,23 @@
       image-rendering: pixelated;
       -webkit-font-smoothing: none;
       text-rendering: geometricPrecision;
+    }
+
+    .welcome-user {
+      font-size: 24px;
+      margin: 20px 0;
+      color: #4488aa;
+      font-family: monospace;
+      letter-spacing: 1px;
+      text-shadow: 0 0 10px rgba(68, 136, 170, 0.5);
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+    }
+
+    .welcome-user.visible {
+      opacity: 1;
+      transform: translateY(0);
     }
 
     .welcome-instructions {
@@ -644,6 +673,7 @@ m294 -60 c15 -12 25 -23 22 -26 -7 -8 -106 27 -106 38 0 17 57 9 84 -12z" />
           </g>
         </svg>
       </div>
+      <div id="welcomeUser" class="welcome-user"></div>
       <h1 class="welcome-title">WELCOME TO MDR</h1>
       <div class="welcome-instructions">
         <ul>
@@ -853,6 +883,97 @@ m294 -60 c15 -12 25 -23 22 -26 -7 -8 -106 27 -106 38 0 17 57 9 84 -12z" />
   </div>
 
   <script>
+    // Format name function
+    function formatDisplayName(name) {
+      if (!name) return '';
+      
+      // Split the name into parts
+      const parts = name.trim().split(/\s+/);
+      
+      if (parts.length === 1) {
+        // Just a username or single name
+        return parts[0];
+      } else {
+        // First name + last initial
+        const firstName = parts[0];
+        const lastInitial = parts[parts.length - 1][0];
+        return `${firstName} ${lastInitial}.`;
+      }
+    }
+
+    // Handle Google Sign-In
+    function handleGoogleSignIn(response) {
+      const credential = response.credential;
+      const payload = JSON.parse(atob(credential.split('.')[1]));
+      const userName = formatDisplayName(payload.name);
+      if (userName) {
+        updateDisplayName(userName);
+      }
+    }
+
+    // Function to get Google profile name
+    function getGoogleProfileName() {
+      return new Promise((resolve) => {
+        google.accounts.id.prompt((notification) => {
+          if (notification.isNotDisplayed() || notification.isSkippedMoment()) {
+            resolve(null);
+          }
+        });
+      });
+    }
+
+    // Get GitHub username
+    async function getGitHubUsername() {
+      try {
+        const response = await fetch('https://api.github.com/user', {
+          headers: {
+            'Accept': 'application/json',
+          },
+          credentials: 'include'
+        });
+        if (response.ok) {
+          const data = await response.json();
+          return formatDisplayName(data.name || data.login);
+        }
+      } catch (error) {
+        console.log('Unable to fetch GitHub username:', error);
+      }
+      return null;
+    }
+
+    // Update display name in the UI
+    function updateDisplayName(name) {
+      if (!name) return;
+      
+      const welcomeUser = document.getElementById('welcomeUser');
+      if (welcomeUser) {
+        welcomeUser.textContent = name;
+        // Add animation after a short delay
+        setTimeout(() => {
+          welcomeUser.classList.add('visible');
+        }, 100);
+      }
+    }
+
+    // Function to attempt getting user name from available sources
+    async function attemptGetUserName() {
+      let userName = null;
+
+      // Try GitHub first
+      userName = await getGitHubUsername();
+      if (userName) {
+        updateDisplayName(userName);
+        return;
+      }
+
+      // Try Google if GitHub failed
+      try {
+        await getGoogleProfileName();
+      } catch (error) {
+        console.log('Google Sign-In failed:', error);
+      }
+    }
+
     // Global variables
     let refinedCount = 0;
     let correctRefinements = 0;
@@ -1606,6 +1727,9 @@ m294 -60 c15 -12 25 -23 22 -26 -7 -8 -106 27 -106 38 0 17 57 9 84 -12z" />
       updateFileName();
       populateGrid();
       updateProgress();
+      
+      // Attempt to get user name
+      attemptGetUserName();
       
       // Welcome screen handler
       const welcomeOverlay = document.getElementById('welcomeOverlay');
