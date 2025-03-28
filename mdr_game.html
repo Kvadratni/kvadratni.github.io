@@ -19,6 +19,92 @@
       font-family: 'Courier New', monospace;
       overflow: hidden;
     }
+    
+    .welcome-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.95);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      z-index: 2000;
+    }
+
+    .welcome-content {
+      text-align: center;
+      max-width: 600px;
+      padding: 20px;
+    }
+
+    .welcome-logo {
+      width: 300px;
+      height: 150px;
+      margin-bottom: 30px;
+    }
+
+    .welcome-logo svg {
+      width: 100%;
+      height: 100%;
+    }
+
+    .welcome-logo path {
+      stroke: #4488aa;
+      stroke-width: 1.5;
+      vector-effect: non-scaling-stroke;
+    }
+
+    .welcome-title {
+      font-size: 24px;
+      margin-bottom: 20px;
+      color: #4488aa;
+    }
+
+    .welcome-instructions {
+      font-size: 16px;
+      line-height: 1.6;
+      margin-bottom: 30px;
+      color: #4488aa;
+      text-align: left;
+    }
+
+    .welcome-instructions ul {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .welcome-instructions li {
+      margin-bottom: 10px;
+      padding-left: 20px;
+      position: relative;
+    }
+
+    .welcome-instructions li:before {
+      content: ">";
+      position: absolute;
+      left: 0;
+      color: #4488aa;
+    }
+
+    .start-button {
+      background: transparent;
+      border: 2px solid #4488aa;
+      color: #4488aa;
+      padding: 12px 30px;
+      font-size: 18px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-family: 'Courier New', monospace;
+    }
+
+    .start-button:hover {
+      background: rgba(68, 136, 170, 0.2);
+      box-shadow: 0 0 20px rgba(68, 136, 170, 0.4);
+    }
 
     body.animating {
       cursor: url('cursor.gif'), wait !important;
@@ -435,6 +521,49 @@
 </head>
 
 <body>
+  <div class="welcome-overlay" id="welcomeOverlay">
+    <div class="welcome-content">
+      <div class="welcome-logo">
+        <svg version="1.0" xmlns="http://www.w3.org/2000/svg" width="300.000000pt" height="162.000000pt"
+          viewBox="0 0 300.000000 162.000000" preserveAspectRatio="xMidYMid meet">
+          <g transform="translate(0.000000,162.000000) scale(0.100000,-0.100000)" fill="#000000" stroke="none">
+            <path d="M1190 1589 c-262 -29 -563 -116 -748 -216 -355 -191 -498 -468 -378
+-728 131 -284 564 -506 1112 -570 167 -19 481 -19 648 0 319 37 631 139 834
+272 75 49 222 196 254 255 55 100 76 203 59 293 -64 346 -503 610 -1145 690
+-130 16 -500 18 -636 4z m740 -58 c538 -92 904 -310 990 -590 25 -80 25 -142
+0 -224 -173 -559 -1479 -811 -2338 -451 -232 97 -403 236 -478 388 -37 76 -39
+85 -39 175 0 89 2 101 36 171 122 256 480 451 970 529 175 28 185 29 474 26
+211 -2 283 -7 385 -24z" />
+            <path d="M1457 1520 c-86 -22 -179 -91 -239 -177 l-29 -43 336 0 336 0 -33 46
+c-98 137 -245 205 -371 174z m188 -65 c57 -27 121 -88 111 -104 -9 -14 -462
+-15 -471 -2 -8 14 58 77 105 101 88 45 168 47 255 5z" />
+            <path d="M1235 1500 c-44 -10 -102 -26 -130 -35 -70 -23 -244 -110 -280 -139
+l-30 -25 176 -1 177 0 31 49 c30 47 116 133 156 158 20 12 20 12 0 12 -11 -1
+-56 -9 -100 -19z m-62 -91 c-31 -53 -59 -69 -124 -69 -31 0 -65 3 -74 6 -14 6
+-13 9 7 23 27 18 165 70 191 70 17 1 17 0 0 -30z" />
+            <path d="M1720 1502 c52 -36 111 -96 145 -148 l36 -54 162 0 162 1 -24 20
+c-89 74 -296 158 -476 193 l-30 6 25 -18z m222 -91 c30 -10 70 -27 88 -36 42
+-22 26 -35 -43 -35 -42 0 -54 5 -83 34 -33 33 -43 56 -26 56 5 0 34 -9 64 -19z" />
+            <path d="M935 1469 c-152 -37 -310 -90 -400 -134 l-70 -33 134 -1 134 -1 51
+38 c73 55 138 92 230 129 100 40 77 41 -79 2z" />
+            <path d="M2006 1466 c75 -28 162 -76 231 -127 l52 -39 123 1 123 1 -73 34
+c-101 47 -224 89 -363 124 -139 35 -178 38 -93 6z" />
+          </g>
+        </svg>
+      </div>
+      <h1 class="welcome-title">WELCOME TO MDR</h1>
+      <div class="welcome-instructions">
+        <ul>
+          <li>Right-click and drag to select groups of numbers</li>
+          <li>Left-click and drag to move selected numbers</li>
+          <li>Drop numbers into the appropriate emotional bins below</li>
+          <li>Each file must be refined to 100% completion</li>
+          <li>Stay focused and maintain emotional consistency</li>
+        </ul>
+      </div>
+      <button class="start-button" id="startButton">START REFINING</button>
+    </div>
+  </div>
   <iframe id="backgroundVideo"
     style="border: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: -1;"
     src="https://www.youtube-nocookie.com/embed/Pc4LptRucbM?autoplay=1&muted=1&controls=0&modestbranding=1&rel=0&disablekb=1&iv_load_policy=3&loop=1&playlist=Pc4LptRucbM"
@@ -1383,6 +1512,32 @@ m294 -60 c15 -12 25 -23 22 -26 -7 -8 -106 27 -106 38 0 17 57 9 84 -12z" />
       updateFileName();
       populateGrid();
       updateProgress();
+      
+      // Welcome screen handler
+      const welcomeOverlay = document.getElementById('welcomeOverlay');
+      const startButton = document.getElementById('startButton');
+      const terminal = document.getElementById('terminal');
+      
+      // Hide terminal initially
+      terminal.style.opacity = '0';
+      
+      startButton.addEventListener('click', () => {
+        // Fade out welcome screen
+        welcomeOverlay.style.transition = 'opacity 0.5s ease-out';
+        welcomeOverlay.style.opacity = '0';
+        
+        // CRT on effect for terminal
+        setTimeout(() => {
+          welcomeOverlay.style.display = 'none';
+          terminal.style.transition = 'opacity 0.5s ease-out';
+          terminal.style.opacity = '1';
+          terminal.classList.add('on');
+        }, 500);
+        
+        setTimeout(() => {
+          terminal.classList.remove('on');
+        }, 1000);
+      });
     });
   </script>
 </body>
