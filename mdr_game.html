@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <title>Lumon Industries - MDR Terminal</title>
   <script>
@@ -7,7 +8,8 @@
     const COASTAL_LOCATIONS = ["Cold Harbor", "Bar Harbor", "Cape Cod", "Newport", "Montauk", "Ocean City", "Virginia Beach", "Outer Banks", "Myrtle Beach", "Charleston", "Savannah", "St. Augustine", "Key West", "Gulf Shores", "Biloxi", "Galveston", "Santa Monica", "Monterey", "San Francisco", "Newport", "Seattle"];
   </script>
   <style>
-    body, html {
+    body,
+    html {
       margin: 0;
       padding: 0;
       width: 100%;
@@ -179,10 +181,8 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background: linear-gradient(
-          rgba(18, 16, 16, 0) 50%,
-          rgba(0, 0, 0, 0.25) 50%
-      );
+      background: linear-gradient(rgba(18, 16, 16, 0) 50%,
+          rgba(0, 0, 0, 0.25) 50%);
       background-size: 100% 4px;
       pointer-events: none;
       z-index: 1001;
@@ -202,10 +202,12 @@
         transform: scaleY(1.0);
         filter: brightness(1);
       }
+
       60% {
         transform: scaleY(0.01);
         filter: brightness(0.8);
       }
+
       100% {
         transform: scaleY(0);
         filter: brightness(0);
@@ -217,10 +219,12 @@
         transform: scaleY(0);
         filter: brightness(0);
       }
+
       60% {
         transform: scaleY(0.01);
         filter: brightness(0.8);
       }
+
       100% {
         transform: scaleY(1.0);
         filter: brightness(1);
@@ -269,6 +273,7 @@
       0% {
         transform: rotateX(0);
       }
+
       100% {
         transform: rotateX(-180deg);
       }
@@ -306,7 +311,8 @@
       padding: 10px;
     }
 
-    .bin-lid-left, .bin-lid-right {
+    .bin-lid-left,
+    .bin-lid-right {
       position: absolute;
       top: 0;
       width: 50%;
@@ -402,12 +408,10 @@
       left: 0;
       right: 0;
       bottom: 0;
-      background: radial-gradient(
-          circle at center,
+      background: radial-gradient(circle at center,
           rgba(68, 136, 170, 0.3) 0%,
           rgba(68, 136, 170, 0.1) 60%,
-          rgba(68, 136, 170, 0) 100%
-      );
+          rgba(68, 136, 170, 0) 100%);
       filter: blur(10px);
       pointer-events: none;
     }
@@ -429,76 +433,76 @@
     }
   </style>
 </head>
-<body>
-<iframe id="backgroundVideo" style="border: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: -1;" 
-        src="https://www.youtube-nocookie.com/embed/Pc4LptRucbM?autoplay=1&muted=1&controls=0&modestbranding=1&rel=0&disablekb=1&iv_load_policy=3&loop=1&playlist=Pc4LptRucbM"
-        allow="autoplay"></iframe>
-<script>
-  // Simple unmute handler - using the global hasInteracted variable
-  const video = document.getElementById('backgroundVideo');
-  
-  function tryUnmuteVideo() {
-    if (!hasInteracted) {
-      video.src = video.src.replace('&muted=1', '');
-      hasInteracted = true;
-      document.removeEventListener('mousedown', tryUnmuteVideo);
-      document.removeEventListener('keydown', tryUnmuteVideo);
-      document.removeEventListener('touchstart', tryUnmuteVideo);
-    }
-  }
 
-  document.addEventListener('mousedown', tryUnmuteVideo);
-  document.addEventListener('keydown', tryUnmuteVideo);
-  document.addEventListener('touchstart', tryUnmuteVideo);
-</script>
-<div class="cursor-lens" id="cursorLens"></div>
-<div class="calendar-flip" id="calendarFlip">
-  <div class="calendar-page" id="currentPage"></div>
-  <div class="calendar-page" id="nextPage"></div>
-</div>
-<div class="terminal crt" id="terminal">
-  <div class="terminal-content">
-    <div class="header">
-      <div class="header-top">
-        <div class="header-title">MDR</div>
-        <div class="progress-container">
-          <div class="file-name" id="fileName">Newport</div>
-          <div class="progress-percentage">12%</div>
-          <div class="progress-bar-container">
-            <div class="progress-bar-fill" id="progressBar"></div>
+<body>
+  <iframe id="backgroundVideo"
+    style="border: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: -1;"
+    src="https://www.youtube-nocookie.com/embed/Pc4LptRucbM?autoplay=1&muted=1&controls=0&modestbranding=1&rel=0&disablekb=1&iv_load_policy=3&loop=1&playlist=Pc4LptRucbM"
+    allow="autoplay"></iframe>
+  <script>
+    // Simple unmute handler - using the global hasInteracted variable
+    const video = document.getElementById('backgroundVideo');
+
+    function tryUnmuteVideo() {
+      if (!hasInteracted) {
+        video.src = video.src.replace('&muted=1', '');
+        hasInteracted = true;
+        document.removeEventListener('mousedown', tryUnmuteVideo);
+        document.removeEventListener('keydown', tryUnmuteVideo);
+        document.removeEventListener('touchstart', tryUnmuteVideo);
+      }
+    }
+
+    document.addEventListener('mousedown', tryUnmuteVideo);
+    document.addEventListener('keydown', tryUnmuteVideo);
+    document.addEventListener('touchstart', tryUnmuteVideo);
+  </script>
+  <div class="cursor-lens" id="cursorLens"></div>
+  <div class="calendar-flip" id="calendarFlip">
+    <div class="calendar-page" id="currentPage"></div>
+    <div class="calendar-page" id="nextPage"></div>
+  </div>
+  <div class="terminal crt" id="terminal">
+    <div class="terminal-content">
+      <div class="header">
+        <div class="header-top">
+          <div class="header-title">MDR</div>
+          <div class="progress-container">
+            <div class="file-name" id="fileName">Newport</div>
+            <div class="progress-percentage">12%</div>
+            <div class="progress-bar-container">
+              <div class="progress-bar-fill" id="progressBar"></div>
+            </div>
           </div>
-        </div>
-        <div class="lumon-logo">
-          <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
-               width="300.000000pt" height="162.000000pt" viewBox="0 0 300.000000 162.000000"
-               preserveAspectRatio="xMidYMid meet">
-            <metadata>
-              Created by potrace 1.10, written by Peter Selinger 2001-2011
-            </metadata>
-            <g transform="translate(0.000000,162.000000) scale(0.100000,-0.100000)"
-               fill="#000000" stroke="none">
-              <path d="M1190 1589 c-262 -29 -563 -116 -748 -216 -355 -191 -498 -468 -378
+          <div class="lumon-logo">
+            <svg version="1.0" xmlns="http://www.w3.org/2000/svg" width="300.000000pt" height="162.000000pt"
+              viewBox="0 0 300.000000 162.000000" preserveAspectRatio="xMidYMid meet">
+              <metadata>
+                Created by potrace 1.10, written by Peter Selinger 2001-2011
+              </metadata>
+              <g transform="translate(0.000000,162.000000) scale(0.100000,-0.100000)" fill="#000000" stroke="none">
+                <path d="M1190 1589 c-262 -29 -563 -116 -748 -216 -355 -191 -498 -468 -378
 -728 131 -284 564 -506 1112 -570 167 -19 481 -19 648 0 319 37 631 139 834
 272 75 49 222 196 254 255 55 100 76 203 59 293 -64 346 -503 610 -1145 690
 -130 16 -500 18 -636 4z m740 -58 c538 -92 904 -310 990 -590 25 -80 25 -142
 0 -224 -173 -559 -1479 -811 -2338 -451 -232 97 -403 236 -478 388 -37 76 -39
 85 -39 175 0 89 2 101 36 171 122 256 480 451 970 529 175 28 185 29 474 26
-211 -2 283 -7 385 -24z"/>
-              <path d="M1457 1520 c-86 -22 -179 -91 -239 -177 l-29 -43 336 0 336 0 -33 46
+211 -2 283 -7 385 -24z" />
+                <path d="M1457 1520 c-86 -22 -179 -91 -239 -177 l-29 -43 336 0 336 0 -33 46
 c-98 137 -245 205 -371 174z m188 -65 c57 -27 121 -88 111 -104 -9 -14 -462
--15 -471 -2 -8 14 58 77 105 101 88 45 168 47 255 5z"/>
-              <path d="M1235 1500 c-44 -10 -102 -26 -130 -35 -70 -23 -244 -110 -280 -139
+-15 -471 -2 -8 14 58 77 105 101 88 45 168 47 255 5z" />
+                <path d="M1235 1500 c-44 -10 -102 -26 -130 -35 -70 -23 -244 -110 -280 -139
 l-30 -25 176 -1 177 0 31 49 c30 47 116 133 156 158 20 12 20 12 0 12 -11 -1
 -56 -9 -100 -19z m-62 -91 c-31 -53 -59 -69 -124 -69 -31 0 -65 3 -74 6 -14 6
--13 9 7 23 27 18 165 70 191 70 17 1 17 0 0 -30z"/>
-              <path d="M1720 1502 c52 -36 111 -96 145 -148 l36 -54 162 0 162 1 -24 20
+-13 9 7 23 27 18 165 70 191 70 17 1 17 0 0 -30z" />
+                <path d="M1720 1502 c52 -36 111 -96 145 -148 l36 -54 162 0 162 1 -24 20
 c-89 74 -296 158 -476 193 l-30 6 25 -18z m222 -91 c30 -10 70 -27 88 -36 42
--22 26 -35 -43 -35 -42 0 -54 5 -83 34 -33 33 -43 56 -26 56 5 0 34 -9 64 -19z"/>
-              <path d="M935 1469 c-152 -37 -310 -90 -400 -134 l-70 -33 134 -1 134 -1 51
-38 c73 55 138 92 230 129 100 40 77 41 -79 2z"/>
-              <path d="M2006 1466 c75 -28 162 -76 231 -127 l52 -39 123 1 123 1 -73 34
-c-101 47 -224 89 -363 124 -139 35 -178 38 -93 6z"/>
-              <path d="M530 1261 l-146 -6 -49 -37 c-78 -56 -159 -148 -196 -219 -32 -60
+-22 26 -35 -43 -35 -42 0 -54 5 -83 34 -33 33 -43 56 -26 56 5 0 34 -9 64 -19z" />
+                <path d="M935 1469 c-152 -37 -310 -90 -400 -134 l-70 -33 134 -1 134 -1 51
+38 c73 55 138 92 230 129 100 40 77 41 -79 2z" />
+                <path d="M2006 1466 c75 -28 162 -76 231 -127 l52 -39 123 1 123 1 -73 34
+c-101 47 -224 89 -363 124 -139 35 -178 38 -93 6z" />
+                <path d="M530 1261 l-146 -6 -49 -37 c-78 -56 -159 -148 -196 -219 -32 -60
 -34 -70 -34 -164 0 -91 3 -106 31 -166 33 -69 126 -177 191 -222 37 -25 42
 -25 191 -24 83 1 152 3 152 5 0 1 -12 15 -26 30 -22 24 -94 136 -94 148 0 2 9
 4 19 4 13 0 29 -18 49 -52 17 -29 47 -72 67 -96 l37 -42 200 0 c183 1 199 3
@@ -527,8 +531,8 @@ m46 -85 c-32 -55 -33 -81 -2 -101 30 -20 63 -7 94 39 13 19 39 50 59 70 l36
 86 -72 116 -109 75 -18 -20 -18 -43 1 -123 l6 -27 -161 0 -161 0 -39 53 c-78
 103 -93 117 -117 117 -14 0 -30 -10 -40 -25 -15 -24 -15 -28 10 -79 14 -29 26
 -56 26 -59 0 -4 -47 -7 -104 -7 l-103 0 -52 41 c-62 49 -133 146 -155 212 -52
-155 15 321 182 446 l67 51 98 0 99 0 -26 -44z"/>
-              <path d="M459 1011 c-29 -29 -29 -30 -29 -148 0 -118 8 -150 44 -175 6 -4 78
+155 15 321 182 446 l67 51 98 0 99 0 -26 -44z" />
+                <path d="M459 1011 c-29 -29 -29 -30 -29 -148 0 -118 8 -150 44 -175 6 -4 78
 -8 159 -8 119 0 154 3 176 16 25 15 30 15 59 0 46 -24 297 -23 346 1 33 15 37
 15 54 0 28 -25 60 -21 94 13 l30 30 34 -30 c44 -38 74 -38 118 0 l34 30 30
 -30 c34 -34 66 -38 94 -13 17 15 21 15 56 -1 37 -17 122 -18 372 -5 14 0 38
@@ -551,325 +555,325 @@ m46 -85 c-32 -55 -33 -81 -2 -101 30 -20 63 -7 94 39 13 19 39 50 59 70 l36
 -4 6 -8 54 -8 106 0 52 4 100 8 106 18 27 53 33 188 34 125 0 145 -2 165 -19z
 m232 -76 c65 -52 120 -95 122 -95 3 0 5 43 5 95 l0 95 33 0 32 0 0 -140 0
 -140 -29 0 c-21 0 -59 24 -147 95 -65 52 -121 95 -125 95 -4 0 -4 -43 -2 -95
-l5 -95 -33 0 -34 0 0 140 0 140 28 0 c20 0 60 -26 145 -95z"/>
-              <path d="M1901 906 c-17 -29 -31 -65 -31 -78 0 -55 77 -81 112 -38 10 12 18
+l5 -95 -33 0 -34 0 0 140 0 140 28 0 c20 0 60 -26 145 -95z" />
+                <path d="M1901 906 c-17 -29 -31 -65 -31 -78 0 -55 77 -81 112 -38 10 12 18
 29 18 36 0 15 -57 134 -64 134 -3 0 -18 -24 -35 -54z m49 -65 c0 -25 -11 -33
--26 -20 -10 8 -11 16 -3 30 12 22 29 16 29 -10z"/>
-              <path d="M430 379 c0 -12 225 -107 325 -138 108 -33 325 -84 331 -78 3 2 -24
+-26 -20 -10 8 -11 16 -3 30 12 22 29 16 29 -10z" />
+                <path d="M430 379 c0 -12 225 -107 325 -138 108 -33 325 -84 331 -78 3 2 -24
 14 -58 27 -83 29 -173 80 -252 140 l-63 48 -142 4 c-77 2 -141 0 -141 -3z
-m294 -60 c15 -12 25 -23 22 -26 -7 -8 -106 27 -106 38 0 17 57 9 84 -12z"/>
-              <path d="M770 383 c0 -16 159 -115 241 -150 76 -33 220 -74 309 -88 l45 -7
+m294 -60 c15 -12 25 -23 22 -26 -7 -8 -106 27 -106 38 0 17 57 9 84 -12z" />
+                <path d="M770 383 c0 -16 159 -115 241 -150 76 -33 220 -74 309 -88 l45 -7
 -45 29 c-52 34 -120 108 -157 171 l-25 42 -168 0 c-93 0 -175 3 -184 6 -9 3
 -16 2 -16 -3z m382 -102 c21 -30 36 -56 33 -59 -15 -15 -265 87 -265 108 0 7
-32 10 97 8 l97 -3 38 -54z"/>
-              <path d="M1180 381 c0 -16 69 -107 111 -146 135 -127 306 -134 446 -19 35 28
+32 10 97 8 l97 -3 38 -54z" />
+                <path d="M1180 381 c0 -16 69 -107 111 -146 135 -127 306 -134 446 -19 35 28
 133 151 133 165 0 2 -155 4 -345 4 -190 0 -345 -2 -345 -4z m600 -55 c0 -21
 -96 -106 -147 -128 -62 -27 -154 -27 -216 0 -58 26 -117 73 -140 112 l-18 30
-260 0 c214 0 261 -2 261 -14z"/>
-              <path d="M2073 380 l-161 -5 -54 -75 c-29 -41 -77 -92 -106 -114 -29 -21 -51
+260 0 c214 0 261 -2 261 -14z" />
+                <path d="M2073 380 l-161 -5 -54 -75 c-29 -41 -77 -92 -106 -114 -29 -21 -51
 -40 -49 -42 7 -7 231 57 301 86 79 33 246 136 246 151 0 5 -3 8 -7 7 -5 -1
 -81 -5 -170 -8z m27 -50 c0 -12 -63 -44 -147 -76 -89 -33 -100 -32 -72 9 52
-75 56 77 141 77 44 0 78 -4 78 -10z"/>
-              <path d="M2428 383 l-118 -4 -65 -49 c-86 -65 -141 -97 -228 -131 -40 -16 -64
+75 56 77 141 77 44 0 78 -4 78 -10z" />
+                <path d="M2428 383 l-118 -4 -65 -49 c-86 -65 -141 -97 -228 -131 -40 -16 -64
 -28 -55 -29 28 0 278 66 353 94 100 38 255 109 255 118 0 5 -6 7 -12 6 -7 -1
 -66 -4 -130 -5z m-68 -52 c0 -5 -10 -11 -22 -15 -36 -9 -41 -7 -28 9 13 16 50
-21 50 6z"/>
-            </g>
-          </svg>
+21 50 6z" />
+              </g>
+            </svg>
+          </div>
         </div>
       </div>
-    </div>
 
-    <div class="main-content">
-      <div class="numbers-field" id="numbersField">
-        <div class="numbers-grid" id="numbersGrid"></div>
-        <canvas id="selectionCanvas"
-                style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none;"></canvas>
+      <div class="main-content">
+        <div class="numbers-field" id="numbersField">
+          <div class="numbers-grid" id="numbersGrid"></div>
+          <canvas id="selectionCanvas"
+            style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none;"></canvas>
+        </div>
       </div>
-    </div>
 
-    <footer class="bins-container">
-      <div class="bin" id="malicious">
-        <div class="bin-box">
-          <div class="bin-label">MALICE</div>
-          <div class="bin-content"></div>
+      <footer class="bins-container">
+        <div class="bin" id="malicious">
+          <div class="bin-box">
+            <div class="bin-label">MALICE</div>
+            <div class="bin-content"></div>
+          </div>
+          <div class="bin-lid-left"></div>
+          <div class="bin-lid-right"></div>
         </div>
-        <div class="bin-lid-left"></div>
-        <div class="bin-lid-right"></div>
-      </div>
-      <div class="bin" id="frolic">
-        <div class="bin-box">
-          <div class="bin-label">FROLIC</div>
-          <div class="bin-content"></div>
+        <div class="bin" id="frolic">
+          <div class="bin-box">
+            <div class="bin-label">FROLIC</div>
+            <div class="bin-content"></div>
+          </div>
+          <div class="bin-lid-left"></div>
+          <div class="bin-lid-right"></div>
         </div>
-        <div class="bin-lid-left"></div>
-        <div class="bin-lid-right"></div>
-      </div>
-      <div class="bin" id="woeful">
-        <div class="bin-box">
-          <div class="bin-label">WOE</div>
-          <div class="bin-content"></div>
+        <div class="bin" id="woeful">
+          <div class="bin-box">
+            <div class="bin-label">WOE</div>
+            <div class="bin-content"></div>
+          </div>
+          <div class="bin-lid-left"></div>
+          <div class="bin-lid-right"></div>
         </div>
-        <div class="bin-lid-left"></div>
-        <div class="bin-lid-right"></div>
-      </div>
-      <div class="bin" id="dread">
-        <div class="bin-box">
-          <div class="bin-label">DREDD</div>
-          <div class="bin-content"></div>
+        <div class="bin" id="dread">
+          <div class="bin-box">
+            <div class="bin-label">DREAD</div>
+            <div class="bin-content"></div>
+          </div>
+          <div class="bin-lid-left"></div>
+          <div class="bin-lid-right"></div>
         </div>
-        <div class="bin-lid-left"></div>
-        <div class="bin-lid-right"></div>
-      </div>
-    </footer>
+      </footer>
+    </div>
   </div>
-</div>
 
-<script>
-  // Global variables
-  let refinedCount = 0;
-  let correctRefinements = 0;
-  let isDrawing = false;
-  let isDragging = false;
-  let points = [];
-  let selectedNumbers = new Set();
-  let dragGroup = null;
-  let mouseX = 0;
-  let mouseY = 0;
-  let canvas = null;
-  let ctx = null;
-  let currentFileName = "";
-  let cursorLens = null;
-  let isAnimating = false; // Track animation state
-  let player = null;
-  let hasInteracted = false;
+  <script>
+    // Global variables
+    let refinedCount = 0;
+    let correctRefinements = 0;
+    let isDrawing = false;
+    let isDragging = false;
+    let points = [];
+    let selectedNumbers = new Set();
+    let dragGroup = null;
+    let mouseX = 0;
+    let mouseY = 0;
+    let canvas = null;
+    let ctx = null;
+    let currentFileName = "";
+    let cursorLens = null;
+    let isAnimating = false; // Track animation state
+    let player = null;
+    let hasInteracted = false;
 
-  // YouTube API callback
-  function onYouTubeIframeAPIReady() {
-    player = new YT.Player('backgroundVideo', {
-      events: {
-        'onReady': onPlayerReady
+    // YouTube API callback
+    function onYouTubeIframeAPIReady() {
+      player = new YT.Player('backgroundVideo', {
+        events: {
+          'onReady': onPlayerReady
+        }
+      });
+    }
+
+    function onPlayerReady(event) {
+      // Add interaction listeners to unmute video
+      document.addEventListener('mousedown', tryUnmuteVideo, { once: true });
+      document.addEventListener('keydown', tryUnmuteVideo, { once: true });
+      document.addEventListener('touchstart', tryUnmuteVideo, { once: true });
+    }
+
+    function tryUnmuteVideo() {
+      if (!hasInteracted && player && player.unMute) {
+        player.unMute();
+        hasInteracted = true;
       }
-    });
-  }
-
-  function onPlayerReady(event) {
-    // Add interaction listeners to unmute video
-    document.addEventListener('mousedown', tryUnmuteVideo, { once: true });
-    document.addEventListener('keydown', tryUnmuteVideo, { once: true });
-    document.addEventListener('touchstart', tryUnmuteVideo, { once: true });
-  }
-
-  function tryUnmuteVideo() {
-    if (!hasInteracted && player && player.unMute) {
-      player.unMute();
-      hasInteracted = true;
-    }
-  }
-
-  function getRandomFileName() {
-    return COASTAL_LOCATIONS[Math.floor(Math.random() * COASTAL_LOCATIONS.length)];
-  }
-
-  function updateFileName() {
-    currentFileName = getRandomFileName();
-    document.getElementById('fileName').textContent = `File Name: ${currentFileName}`;
-  }
-
-  function updateProgress() {
-    const totalRequired = 256; // 256 numbers = 100%
-    const percentage = Math.min(100, Math.floor((refinedCount / totalRequired) * 100));
-
-    const progressBar = document.querySelector('.progress-bar-fill');
-    const percentageText = document.querySelector('.progress-percentage');
-
-    if (progressBar && percentageText) {
-      progressBar.style.width = `${percentage}%`;
-      percentageText.textContent = `${percentage}%`;
     }
 
-    // If we've reached 100%, start a new batch
-    if (refinedCount >= totalRequired) {
-      setTimeout(() => {
-        startNewBatch();
-      }, 1000);
-    }
-  }
-
-  function startNewBatch() {
-    refinedCount = 0;
-    correctRefinements = 0;
-    updateFileName();
-    populateGrid();
-    updateProgress();
-  }
-
-  function initialize() {
-    canvas = document.getElementById('selectionCanvas');
-    cursorLens = document.getElementById('cursorLens');
-    if (!canvas) {
-      console.error('Canvas element not found');
-      return;
-    }
-    ctx = canvas.getContext('2d');
-    resizeCanvas();
-  }
-
-  function resizeCanvas() {
-    const field = document.getElementById('numbersField');
-    if (!field || !canvas) {
-      console.error('Required elements not found');
-      return;
-    }
-    canvas.width = field.offsetWidth;
-    canvas.height = field.offsetHeight;
-  }
-
-  function generateNumber() {
-    return Math.floor(Math.random() * 10);
-  }
-
-  function createNumberPoint(number) {
-    const point = document.createElement('div');
-    point.className = 'number-point';
-    point.textContent = number;
-    point.dataset.number = number;
-    return point;
-  }
-
-  function populateGrid() {
-    const grid = document.getElementById('numbersGrid');
-    if (!grid) return;
-
-    grid.innerHTML = '';
-    for (let i = 0; i < 800; i++) {
-      const number = generateNumber();
-      grid.appendChild(createNumberPoint(number));
-    }
-  }
-
-  function clearCanvas() {
-    if (!ctx || !canvas) return;
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-  }
-
-  function drawPath() {
-    if (!ctx || points.length < 2) return;
-
-    // Draw the main selection path
-    ctx.beginPath();
-    ctx.moveTo(points[0].x, points[0].y);
-
-    for (let i = 1; i < points.length; i++) {
-      ctx.lineTo(points[i].x, points[i].y);
+    function getRandomFileName() {
+      return COASTAL_LOCATIONS[Math.floor(Math.random() * COASTAL_LOCATIONS.length)];
     }
 
-    // Draw glow effect
-    ctx.shadowColor = 'rgba(68, 136, 170, 0.6)';
-    ctx.shadowBlur = 15;
-    ctx.strokeStyle = 'rgba(68, 136, 170, 0.4)';
-    ctx.lineWidth = 2;
-    ctx.stroke();
-
-    // Draw inner glow
-    ctx.shadowBlur = 0;
-    ctx.strokeStyle = 'rgba(68, 136, 170, 0.2)';
-    ctx.lineWidth = 1;
-    ctx.stroke();
-
-    if (points.length > 2) {
-      ctx.fillStyle = 'rgba(68, 136, 170, 0.05)';
-      ctx.fill();
-
-      // Add pulsing effect to the fill
-      const now = Date.now();
-      const pulseOpacity = 0.05 + Math.sin(now / 200) * 0.02;
-      ctx.fillStyle = `rgba(68, 136, 170, ${pulseOpacity})`;
-      ctx.fill();
-    }
-  }
-
-  function isPointInPath(x, y) {
-    if (!ctx || points.length < 3) return false;
-
-    ctx.beginPath();
-    ctx.moveTo(points[0].x, points[0].y);
-    for (let i = 1; i < points.length; i++) {
-      ctx.lineTo(points[i].x, points[i].y);
+    function updateFileName() {
+      currentFileName = getRandomFileName();
+      document.getElementById('fileName').textContent = `File Name: ${currentFileName}`;
     }
 
-    return ctx.isPointInPath(x, y);
-  }
+    function updateProgress() {
+      const totalRequired = 256; // 256 numbers = 100%
+      const percentage = Math.min(100, Math.floor((refinedCount / totalRequired) * 100));
 
-  function startDrawing(e) {
-    if (window.isAnimating) return; // Block during animation
-    if (e.button === 2) { // Right click
-      e.preventDefault();
-      isDrawing = true;
+      const progressBar = document.querySelector('.progress-bar-fill');
+      const percentageText = document.querySelector('.progress-percentage');
+
+      if (progressBar && percentageText) {
+        progressBar.style.width = `${percentage}%`;
+        percentageText.textContent = `${percentage}%`;
+      }
+
+      // If we've reached 100%, start a new batch
+      if (refinedCount >= totalRequired) {
+        setTimeout(() => {
+          startNewBatch();
+        }, 1000);
+      }
+    }
+
+    function startNewBatch() {
+      refinedCount = 0;
+      correctRefinements = 0;
+      updateFileName();
+      populateGrid();
+      updateProgress();
+    }
+
+    function initialize() {
+      canvas = document.getElementById('selectionCanvas');
+      cursorLens = document.getElementById('cursorLens');
+      if (!canvas) {
+        console.error('Canvas element not found');
+        return;
+      }
+      ctx = canvas.getContext('2d');
+      resizeCanvas();
+    }
+
+    function resizeCanvas() {
+      const field = document.getElementById('numbersField');
+      if (!field || !canvas) {
+        console.error('Required elements not found');
+        return;
+      }
+      canvas.width = field.offsetWidth;
+      canvas.height = field.offsetHeight;
+    }
+
+    function generateNumber() {
+      return Math.floor(Math.random() * 10);
+    }
+
+    function createNumberPoint(number) {
+      const point = document.createElement('div');
+      point.className = 'number-point';
+      point.textContent = number;
+      point.dataset.number = number;
+      return point;
+    }
+
+    function populateGrid() {
+      const grid = document.getElementById('numbersGrid');
+      if (!grid) return;
+
+      grid.innerHTML = '';
+      for (let i = 0; i < 800; i++) {
+        const number = generateNumber();
+        grid.appendChild(createNumberPoint(number));
+      }
+    }
+
+    function clearCanvas() {
+      if (!ctx || !canvas) return;
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+    }
+
+    function drawPath() {
+      if (!ctx || points.length < 2) return;
+
+      // Draw the main selection path
+      ctx.beginPath();
+      ctx.moveTo(points[0].x, points[0].y);
+
+      for (let i = 1; i < points.length; i++) {
+        ctx.lineTo(points[i].x, points[i].y);
+      }
+
+      // Draw glow effect
+      ctx.shadowColor = 'rgba(68, 136, 170, 0.6)';
+      ctx.shadowBlur = 15;
+      ctx.strokeStyle = 'rgba(68, 136, 170, 0.4)';
+      ctx.lineWidth = 2;
+      ctx.stroke();
+
+      // Draw inner glow
+      ctx.shadowBlur = 0;
+      ctx.strokeStyle = 'rgba(68, 136, 170, 0.2)';
+      ctx.lineWidth = 1;
+      ctx.stroke();
+
+      if (points.length > 2) {
+        ctx.fillStyle = 'rgba(68, 136, 170, 0.05)';
+        ctx.fill();
+
+        // Add pulsing effect to the fill
+        const now = Date.now();
+        const pulseOpacity = 0.05 + Math.sin(now / 200) * 0.02;
+        ctx.fillStyle = `rgba(68, 136, 170, ${pulseOpacity})`;
+        ctx.fill();
+      }
+    }
+
+    function isPointInPath(x, y) {
+      if (!ctx || points.length < 3) return false;
+
+      ctx.beginPath();
+      ctx.moveTo(points[0].x, points[0].y);
+      for (let i = 1; i < points.length; i++) {
+        ctx.lineTo(points[i].x, points[i].y);
+      }
+
+      return ctx.isPointInPath(x, y);
+    }
+
+    function startDrawing(e) {
+      if (window.isAnimating) return; // Block during animation
+      if (e.button === 2) { // Right click
+        e.preventDefault();
+        isDrawing = true;
+        const rect = canvas.getBoundingClientRect();
+        points = [{
+          x: e.clientX - rect.left, y: e.clientY - rect.top
+        }];
+        selectedNumbers.clear();
+        clearCanvas();
+      }
+    }
+
+    function draw(e) {
+      if (!isDrawing || window.isAnimating) return; // Block during animation
+
       const rect = canvas.getBoundingClientRect();
-      points = [{
+      const point = {
         x: e.clientX - rect.left, y: e.clientY - rect.top
-      }];
-      selectedNumbers.clear();
+      };
+      points.push(point);
+
       clearCanvas();
-    }
-  }
-
-  function draw(e) {
-    if (!isDrawing || window.isAnimating) return; // Block during animation
-
-    const rect = canvas.getBoundingClientRect();
-    const point = {
-      x: e.clientX - rect.left, y: e.clientY - rect.top
-    };
-    points.push(point);
-
-    clearCanvas();
-    drawPath();
-    updateSelection();
-  }
-
-  function endDrawing() {
-    if (!isDrawing) return;
-    isDrawing = false;
-
-    if (points.length > 2) {
-      points.push(points[0]); // Close the loop
       drawPath();
-      setTimeout(() => clearCanvas(), 100);
-    } else {
-      clearCanvas();
+      updateSelection();
     }
 
-    points = [];
-  }
+    function endDrawing() {
+      if (!isDrawing) return;
+      isDrawing = false;
 
-  function updateSelection() {
-    const numbers = document.querySelectorAll('.number-point');
-    const rect = canvas.getBoundingClientRect();
-
-    numbers.forEach(number => {
-      const numberRect = number.getBoundingClientRect();
-      const centerX = numberRect.left + numberRect.width / 2 - rect.left;
-      const centerY = numberRect.top + numberRect.height / 2 - rect.top;
-
-      if (isPointInPath(centerX, centerY)) {
-        number.classList.add('selected');
-        selectedNumbers.add(number);
-      } else if (!isDragging) {
-        number.classList.remove('selected');
-        selectedNumbers.delete(number);
+      if (points.length > 2) {
+        points.push(points[0]); // Close the loop
+        drawPath();
+        setTimeout(() => clearCanvas(), 100);
+      } else {
+        clearCanvas();
       }
-    });
-  }
 
-  function updateBinStates(e) {
-    if (!isDragging || !dragGroup) return;
+      points = [];
+    }
 
-    const bins = document.querySelectorAll('.bin');
-    bins.forEach(bin => {
-      const binRect = bin.getBoundingClientRect();
-      const isOverBin = e.clientY
+    function updateSelection() {
+      const numbers = document.querySelectorAll('.number-point');
+      const rect = canvas.getBoundingClientRect();
+
+      numbers.forEach(number => {
+        const numberRect = number.getBoundingClientRect();
+        const centerX = numberRect.left + numberRect.width / 2 - rect.left;
+        const centerY = numberRect.top + numberRect.height / 2 - rect.top;
+
+        if (isPointInPath(centerX, centerY)) {
+          number.classList.add('selected');
+          selectedNumbers.add(number);
+        } else if (!isDragging) {
+          number.classList.remove('selected');
+          selectedNumbers.delete(number);
+        }
+      });
+    }
+
+    function updateBinStates(e) {
+      if (!isDragging || !dragGroup) return;
+
+      const bins = document.querySelectorAll('.bin');
+      bins.forEach(bin => {
+        const binRect = bin.getBoundingClientRect();
+        const isOverBin = e.clientY
           >= binRect.top
           - 50
           && e.clientY
@@ -879,92 +883,92 @@ m294 -60 c15 -12 25 -23 22 -26 -7 -8 -106 27 -106 38 0 17 57 9 84 -12z"/>
           && e.clientX
           <= binRect.right;
 
-      if (isOverBin) {
-        bin.classList.add('active');
-      } else {
-        bin.classList.remove('active');
-      }
-    });
-  }
-
-  function startDragging(e) {
-    if (window.isAnimating) return; // Block during animation
-    if (e.button === 0 && e.target.classList.contains('number-point')) {
-      // Only allow dragging if there are selected numbers
-      if (selectedNumbers.size === 0) return;
-
-      isDragging = true;
-      const number = e.target;
-
-      // If the clicked number isn't already selected, clear other selections
-      if (!number.classList.contains('selected')) {
-        selectedNumbers.forEach(num => num.classList.remove('selected'));
-        selectedNumbers.clear();
-        selectedNumbers.add(number);
-        number.classList.add('selected');
-      }
-
-      // Create drag group overlay
-      dragGroup = document.createElement('div');
-      dragGroup.className = 'dragging-group';
-      document.body.appendChild(dragGroup);
-
-      // Calculate bounding box of selected numbers
-      const bounds = {
-        left: Infinity, top: Infinity, right: -Infinity, bottom: -Infinity
-      };
-
-      selectedNumbers.forEach(num => {
-        const rect = num.getBoundingClientRect();
-        bounds.left = Math.min(bounds.left, rect.left);
-        bounds.top = Math.min(bounds.top, rect.top);
-        bounds.right = Math.max(bounds.right, rect.right);
-        bounds.bottom = Math.max(bounds.bottom, rect.bottom);
+        if (isOverBin) {
+          bin.classList.add('active');
+        } else {
+          bin.classList.remove('active');
+        }
       });
-
-      // Position drag group over selected numbers
-      dragGroup.style.left = bounds.left + 'px';
-      dragGroup.style.top = bounds.top + 'px';
-      dragGroup.style.width = (bounds.right - bounds.left) + 'px';
-      dragGroup.style.height = (bounds.bottom - bounds.top) + 'px';
-
-      // Add clones to drag group in their relative positions
-      selectedNumbers.forEach(num => {
-        const clone = num.cloneNode(true);
-        clone.classList.add('selected');
-        const rect = num.getBoundingClientRect();
-        clone.style.position = 'absolute';
-        clone.style.left = (rect.left - bounds.left) + 'px';
-        clone.style.top = (rect.top - bounds.top) + 'px';
-        dragGroup.appendChild(clone);
-      });
-
-      // Store initial mouse offset
-      dragGroup.dataset.offsetX = e.clientX - bounds.left;
-      dragGroup.dataset.offsetY = e.clientY - bounds.top;
-
-      updateDragPosition(e);
     }
-  }
 
-  function updateDragPosition(e) {
-    if (!isDragging || !dragGroup || window.isAnimating) return; // Block during animation
+    function startDragging(e) {
+      if (window.isAnimating) return; // Block during animation
+      if (e.button === 0 && e.target.classList.contains('number-point')) {
+        // Only allow dragging if there are selected numbers
+        if (selectedNumbers.size === 0) return;
 
-    // Use stored offsets for smoother dragging
-    const offsetX = parseFloat(dragGroup.dataset.offsetX) || 0;
-    const offsetY = parseFloat(dragGroup.dataset.offsetY) || 0;
+        isDragging = true;
+        const number = e.target;
 
-    dragGroup.style.left = (e.clientX - offsetX) + 'px';
-    dragGroup.style.top = (e.clientY - offsetY) + 'px';
+        // If the clicked number isn't already selected, clear other selections
+        if (!number.classList.contains('selected')) {
+          selectedNumbers.forEach(num => num.classList.remove('selected'));
+          selectedNumbers.clear();
+          selectedNumbers.add(number);
+          number.classList.add('selected');
+        }
 
-    // Check if over bins
-    const bins = document.querySelectorAll('.bin');
-    let overBin = false;
-    let targetBin = null;
+        // Create drag group overlay
+        dragGroup = document.createElement('div');
+        dragGroup.className = 'dragging-group';
+        document.body.appendChild(dragGroup);
 
-    bins.forEach(bin => {
-      const binRect = bin.getBoundingClientRect();
-      const isOverBin = e.clientY
+        // Calculate bounding box of selected numbers
+        const bounds = {
+          left: Infinity, top: Infinity, right: -Infinity, bottom: -Infinity
+        };
+
+        selectedNumbers.forEach(num => {
+          const rect = num.getBoundingClientRect();
+          bounds.left = Math.min(bounds.left, rect.left);
+          bounds.top = Math.min(bounds.top, rect.top);
+          bounds.right = Math.max(bounds.right, rect.right);
+          bounds.bottom = Math.max(bounds.bottom, rect.bottom);
+        });
+
+        // Position drag group over selected numbers
+        dragGroup.style.left = bounds.left + 'px';
+        dragGroup.style.top = bounds.top + 'px';
+        dragGroup.style.width = (bounds.right - bounds.left) + 'px';
+        dragGroup.style.height = (bounds.bottom - bounds.top) + 'px';
+
+        // Add clones to drag group in their relative positions
+        selectedNumbers.forEach(num => {
+          const clone = num.cloneNode(true);
+          clone.classList.add('selected');
+          const rect = num.getBoundingClientRect();
+          clone.style.position = 'absolute';
+          clone.style.left = (rect.left - bounds.left) + 'px';
+          clone.style.top = (rect.top - bounds.top) + 'px';
+          dragGroup.appendChild(clone);
+        });
+
+        // Store initial mouse offset
+        dragGroup.dataset.offsetX = e.clientX - bounds.left;
+        dragGroup.dataset.offsetY = e.clientY - bounds.top;
+
+        updateDragPosition(e);
+      }
+    }
+
+    function updateDragPosition(e) {
+      if (!isDragging || !dragGroup || window.isAnimating) return; // Block during animation
+
+      // Use stored offsets for smoother dragging
+      const offsetX = parseFloat(dragGroup.dataset.offsetX) || 0;
+      const offsetY = parseFloat(dragGroup.dataset.offsetY) || 0;
+
+      dragGroup.style.left = (e.clientX - offsetX) + 'px';
+      dragGroup.style.top = (e.clientY - offsetY) + 'px';
+
+      // Check if over bins
+      const bins = document.querySelectorAll('.bin');
+      let overBin = false;
+      let targetBin = null;
+
+      bins.forEach(bin => {
+        const binRect = bin.getBoundingClientRect();
+        const isOverBin = e.clientY
           >= binRect.top
           - 100
           && e.clientY
@@ -974,48 +978,48 @@ m294 -60 c15 -12 25 -23 22 -26 -7 -8 -106 27 -106 38 0 17 57 9 84 -12z"/>
           && e.clientX
           <= binRect.right;
 
-      if (isOverBin) {
-        bin.classList.add('active');
-        overBin = true;
-        targetBin = bin;
+        if (isOverBin) {
+          bin.classList.add('active');
+          overBin = true;
+          targetBin = bin;
+        } else {
+          bin.classList.remove('active');
+        }
+      });
+
+      // Add visual feedback and stretching effect when near bins
+      if (overBin && targetBin) {
+        dragGroup.classList.add('stretching');
+
+        // Calculate angle between drag group center and bin center
+        const dragRect = dragGroup.getBoundingClientRect();
+        const dragCenterX = dragRect.left + dragRect.width / 2;
+        const dragCenterY = dragRect.top + dragRect.height / 2;
+
+        const binRect = targetBin.getBoundingClientRect();
+        const binCenterX = binRect.left + binRect.width / 2;
+        const binCenterY = binRect.top + binRect.height / 2;
+
+        const angle = Math.atan2(binCenterY - dragCenterY, binCenterX - dragCenterX);
+
+        // Apply rotation to point towards bin
+        dragGroup.style.transform = `scale(0.9) rotate(${angle * (180 / Math.PI)}deg)`;
       } else {
-        bin.classList.remove('active');
+        dragGroup.classList.remove('stretching');
+        dragGroup.style.transform = '';
       }
-    });
-
-    // Add visual feedback and stretching effect when near bins
-    if (overBin && targetBin) {
-      dragGroup.classList.add('stretching');
-
-      // Calculate angle between drag group center and bin center
-      const dragRect = dragGroup.getBoundingClientRect();
-      const dragCenterX = dragRect.left + dragRect.width / 2;
-      const dragCenterY = dragRect.top + dragRect.height / 2;
-
-      const binRect = targetBin.getBoundingClientRect();
-      const binCenterX = binRect.left + binRect.width / 2;
-      const binCenterY = binRect.top + binRect.height / 2;
-
-      const angle = Math.atan2(binCenterY - dragCenterY, binCenterX - dragCenterX);
-
-      // Apply rotation to point towards bin
-      dragGroup.style.transform = `scale(0.9) rotate(${angle * (180 / Math.PI)}deg)`;
-    } else {
-      dragGroup.classList.remove('stretching');
-      dragGroup.style.transform = '';
     }
-  }
 
-  function endDragging(e) {
-    if (!isDragging || !dragGroup) return;
+    function endDragging(e) {
+      if (!isDragging || !dragGroup) return;
 
-    const bins = document.querySelectorAll('.bin');
-    let processed = false;
-    let targetBin = null;
+      const bins = document.querySelectorAll('.bin');
+      let processed = false;
+      let targetBin = null;
 
-    bins.forEach(bin => {
-      const binRect = bin.getBoundingClientRect();
-      const isOverBin = e.clientY
+      bins.forEach(bin => {
+        const binRect = bin.getBoundingClientRect();
+        const isOverBin = e.clientY
           >= binRect.top
           - 100
           && e.clientY
@@ -1025,209 +1029,209 @@ m294 -60 c15 -12 25 -23 22 -26 -7 -8 -106 27 -106 38 0 17 57 9 84 -12z"/>
           && e.clientX
           <= binRect.right;
 
-      if (isOverBin) {
-        targetBin = bin;
-        processed = true;
-      }
-      bin.classList.remove('active');
-    });
+        if (isOverBin) {
+          targetBin = bin;
+          processed = true;
+        }
+        bin.classList.remove('active');
+      });
 
-    // Set animation state and clean up drag group before starting animations
-    isDragging = false;
-    dragGroup.remove();
-    dragGroup = null;
+      // Set animation state and clean up drag group before starting animations
+      isDragging = false;
+      dragGroup.remove();
+      dragGroup = null;
 
-    if (processed && targetBin) {
-      setCursorDuringAnimation(true); // Set animation state at start of streaming
-      const binRect = targetBin.getBoundingClientRect();
-      const binCenter = {
-        x: binRect.left + binRect.width / 2, y: binRect.top + binRect.height / 2
-      };
+      if (processed && targetBin) {
+        setCursorDuringAnimation(true); // Set animation state at start of streaming
+        const binRect = targetBin.getBoundingClientRect();
+        const binCenter = {
+          x: binRect.left + binRect.width / 2, y: binRect.top + binRect.height / 2
+        };
 
-      // Create streaming effect from original positions
-      const numbers = Array.from(selectedNumbers);
-      const DELAY_BETWEEN = 50; // ms between each number starting
-      const ANIMATION_DURATION = 400; // ms for each number's animation
+        // Create streaming effect from original positions
+        const numbers = Array.from(selectedNumbers);
+        const DELAY_BETWEEN = 50; // ms between each number starting
+        const ANIMATION_DURATION = 400; // ms for each number's animation
 
-      numbers.forEach((number, index) => {
-        const rect = number.getBoundingClientRect();
-        const clone = number.cloneNode(true);
-        clone.classList.add('streaming');
-        clone.style.width = rect.width + 'px';
-        clone.style.height = rect.height + 'px';
-        document.body.appendChild(clone);
+        numbers.forEach((number, index) => {
+          const rect = number.getBoundingClientRect();
+          const clone = number.cloneNode(true);
+          clone.classList.add('streaming');
+          clone.style.width = rect.width + 'px';
+          clone.style.height = rect.height + 'px';
+          document.body.appendChild(clone);
 
-        // Position at original location
-        clone.style.left = rect.left + 'px';
-        clone.style.top = rect.top + 'px';
+          // Position at original location
+          clone.style.left = rect.left + 'px';
+          clone.style.top = rect.top + 'px';
 
-        // Hide original number immediately
-        number.style.opacity = '0';
+          // Hide original number immediately
+          number.style.opacity = '0';
 
-        // Add initial glow
-        clone.style.boxShadow = '0 0 30px rgba(68, 136, 170, 0.8)';
-        clone.style.textShadow = '0 0 15px rgba(255, 255, 255, 1)';
+          // Add initial glow
+          clone.style.boxShadow = '0 0 30px rgba(68, 136, 170, 0.8)';
+          clone.style.textShadow = '0 0 15px rgba(255, 255, 255, 1)';
 
-        // Start animation after delay based on position
-        setTimeout(() => {
-          clone.style.transition = 'all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1)';
-          clone.style.transform = `
+          // Start animation after delay based on position
+          setTimeout(() => {
+            clone.style.transition = 'all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1)';
+            clone.style.transform = `
                             translate(${binCenter.x - rect.left}px, ${binCenter.y - rect.top}px)
                             scale(0.1)
                             rotate(${180 + Math.random() * 360}deg)
                         `;
-          clone.style.opacity = '0';
+            clone.style.opacity = '0';
 
-          // Remove clone after animation
-          setTimeout(() => {
-            clone.remove();
-          }, ANIMATION_DURATION);
-        }, index * DELAY_BETWEEN);
+            // Remove clone after animation
+            setTimeout(() => {
+              clone.remove();
+            }, ANIMATION_DURATION);
+          }, index * DELAY_BETWEEN);
+        });
+
+        // Submit after all animations will be complete
+        setTimeout(() => {
+          submitSelection(targetBin.id, numbers);
+          setCursorDuringAnimation(false); // Clear animation state after all streaming is done
+        }, numbers.length * DELAY_BETWEEN + ANIMATION_DURATION);
+      } else {
+        selectedNumbers.forEach(number => {
+          number.style.opacity = '1';
+        });
+        isDragging = false;
+        dragGroup.remove();
+        dragGroup = null;
+        selectedNumbers.clear();
+        setCursorDuringAnimation(false);
+      }
+    }
+
+    // Function to manage cursor during animations
+    function setCursorDuringAnimation(isAnimating) {
+      if (isAnimating) {
+        document.body.classList.add('animating');
+      } else {
+        document.body.classList.remove('animating');
+      }
+      window.isAnimating = isAnimating; // Update global animation state
+    }
+
+    function submitSelection(emotion, numbers) {
+      setCursorDuringAnimation(true);
+      refinedCount += numbers.length;
+      correctRefinements += numbers.length;
+
+      setCursorDuringAnimation(true);
+      numbers.forEach(number => {
+        number.style.opacity = '0';
       });
 
-      // Submit after all animations will be complete
-      setTimeout(() => {
-        submitSelection(targetBin.id, numbers);
-        setCursorDuringAnimation(false); // Clear animation state after all streaming is done
-      }, numbers.length * DELAY_BETWEEN + ANIMATION_DURATION);
-    } else {
-      selectedNumbers.forEach(number => {
-        number.style.opacity = '1';
-      });
-      isDragging = false;
-      dragGroup.remove();
-      dragGroup = null;
+      const binContent = document.querySelector(`#${emotion} .bin-content`);
+      if (binContent) {
+        binContent.textContent = `${numbers.length} numbers refined`;
+      }
+
       selectedNumbers.clear();
+      reflow();
+      updateProgress();
+    }
+
+    async function reflow() {
+      setCursorDuringAnimation(true);
+      const grid = document.getElementById('numbersGrid');
+      const numbers = Array.from(grid.children);
+      const positions = new Map(); // Store original positions
+      const removedIndices = [];
+
+      // First, store all original positions and find gaps
+      numbers.forEach((number, index) => {
+        if (number.style.opacity === '0') {
+          removedIndices.push(index);
+        } else {
+          const rect = number.getBoundingClientRect();
+          positions.set(number, { x: rect.left, y: rect.top });
+        }
+      });
+
+      // Remove the faded numbers
+      removedIndices.reverse().forEach(index => {
+        numbers[index].remove();
+        numbers.splice(index, 1);
+      });
+
+      // Create new numbers to fill the gaps
+      const newNumbers = [];
+      for (let i = 0; i < removedIndices.length; i++) {
+        const number = createNumberPoint(generateNumber());
+        number.style.opacity = '0';
+        newNumbers.push(number);
+      }
+
+      // Add new numbers to the grid
+      newNumbers.forEach(number => grid.appendChild(number));
+
+      // Force a reflow
+      grid.offsetHeight;
+
+      // Calculate new positions
+      const currentPositions = new Map();
+      numbers.forEach(number => {
+        const rect = number.getBoundingClientRect();
+        currentPositions.set(number, { x: rect.left, y: rect.top });
+      });
+
+      // Animate transitions
+      numbers.forEach(number => {
+        setCursorDuringAnimation(true);
+
+        const oldPos = positions.get(number);
+        const newPos = currentPositions.get(number);
+        if (oldPos && newPos) {
+          const dx = oldPos.x - newPos.x;
+          const dy = oldPos.y - newPos.y;
+
+          // Set initial position
+          number.style.transform = `translate(${dx}px, ${dy}px)`;
+          number.style.transition = 'none';
+
+          // Force a reflow
+          number.offsetHeight;
+
+          // Start animation
+          number.style.transition = 'transform 0.5s ease-out';
+          number.style.transform = 'translate(0, 0)';
+        }
+      });
+
+      // Fade in new numbers with stagger
+      await new Promise(resolve => setTimeout(resolve, 500)); // Wait for flow animation
+
+      newNumbers.forEach((number, i) => {
+        setTimeout(() => {
+          number.style.transition = 'opacity 0.3s ease-out';
+          number.style.opacity = '1';
+        }, i * 50);
+      });
+
+      // Clean up
+      await new Promise(resolve => setTimeout(resolve, 50 * newNumbers.length + 300));
+      numbers.forEach(number => {
+        number.style.transition = '';
+        number.style.transform = '';
+      });
       setCursorDuringAnimation(false);
     }
-  }
 
-  // Function to manage cursor during animations
-  function setCursorDuringAnimation(isAnimating) {
-    if (isAnimating) {
-      document.body.classList.add('animating');
-    } else {
-      document.body.classList.remove('animating');
-    }
-    window.isAnimating = isAnimating; // Update global animation state
-  }
-
-  function submitSelection(emotion, numbers) {
-    setCursorDuringAnimation(true);
-    refinedCount += numbers.length;
-    correctRefinements += numbers.length;
-
-    setCursorDuringAnimation(true);
-    numbers.forEach(number => {
-      number.style.opacity = '0';
-    });
-
-    const binContent = document.querySelector(`#${emotion} .bin-content`);
-    if (binContent) {
-      binContent.textContent = `${numbers.length} numbers refined`;
-    }
-
-    selectedNumbers.clear();
-    reflow();
-    updateProgress();
-  }
-
-  async function reflow() {
-    setCursorDuringAnimation(true);
-    const grid = document.getElementById('numbersGrid');
-    const numbers = Array.from(grid.children);
-    const positions = new Map(); // Store original positions
-    const removedIndices = [];
-
-    // First, store all original positions and find gaps
-    numbers.forEach((number, index) => {
-      if (number.style.opacity === '0') {
-        removedIndices.push(index);
-      } else {
-        const rect = number.getBoundingClientRect();
-        positions.set(number, {x: rect.left, y: rect.top});
+    function updateCursorLens(e) {
+      if (isDragging || isDrawing) {
+        resetNumberTransforms();
+        return;
       }
-    });
 
-    // Remove the faded numbers
-    removedIndices.reverse().forEach(index => {
-      numbers[index].remove();
-      numbers.splice(index, 1);
-    });
+      const field = document.getElementById('numbersField');
+      const rect = field.getBoundingClientRect();
 
-    // Create new numbers to fill the gaps
-    const newNumbers = [];
-    for (let i = 0; i < removedIndices.length; i++) {
-      const number = createNumberPoint(generateNumber());
-      number.style.opacity = '0';
-      newNumbers.push(number);
-    }
-
-    // Add new numbers to the grid
-    newNumbers.forEach(number => grid.appendChild(number));
-
-    // Force a reflow
-    grid.offsetHeight;
-
-    // Calculate new positions
-    const currentPositions = new Map();
-    numbers.forEach(number => {
-      const rect = number.getBoundingClientRect();
-      currentPositions.set(number, {x: rect.left, y: rect.top});
-    });
-
-    // Animate transitions
-    numbers.forEach(number => {
-      setCursorDuringAnimation(true);
-
-      const oldPos = positions.get(number);
-      const newPos = currentPositions.get(number);
-      if (oldPos && newPos) {
-        const dx = oldPos.x - newPos.x;
-        const dy = oldPos.y - newPos.y;
-
-        // Set initial position
-        number.style.transform = `translate(${dx}px, ${dy}px)`;
-        number.style.transition = 'none';
-
-        // Force a reflow
-        number.offsetHeight;
-
-        // Start animation
-        number.style.transition = 'transform 0.5s ease-out';
-        number.style.transform = 'translate(0, 0)';
-      }
-    });
-
-    // Fade in new numbers with stagger
-    await new Promise(resolve => setTimeout(resolve, 500)); // Wait for flow animation
-
-    newNumbers.forEach((number, i) => {
-      setTimeout(() => {
-        number.style.transition = 'opacity 0.3s ease-out';
-        number.style.opacity = '1';
-      }, i * 50);
-    });
-
-    // Clean up
-    await new Promise(resolve => setTimeout(resolve, 50 * newNumbers.length + 300));
-    numbers.forEach(number => {
-      number.style.transition = '';
-      number.style.transform = '';
-    });
-    setCursorDuringAnimation(false);
-  }
-
-  function updateCursorLens(e) {
-    if (isDragging || isDrawing) {
-      resetNumberTransforms();
-      return;
-    }
-
-    const field = document.getElementById('numbersField');
-    const rect = field.getBoundingClientRect();
-
-    if (e.clientX
+      if (e.clientX
         >= rect.left
         && e.clientX
         <= rect.right
@@ -1236,150 +1240,151 @@ m294 -60 c15 -12 25 -23 22 -26 -7 -8 -106 27 -106 38 0 17 57 9 84 -12z"/>
         && e.clientY
         <= rect.bottom) {
 
-      // Apply fish-eye effect to numbers under the lens
+        // Apply fish-eye effect to numbers under the lens
+        const numbers = document.querySelectorAll('.number-point:not(.selected)');
+        numbers.forEach(number => {
+          const numRect = number.getBoundingClientRect();
+          const numCenterX = numRect.left + numRect.width / 2;
+          const numCenterY = numRect.top + numRect.height / 2;
+
+          const dx = e.clientX - numCenterX;
+          const dy = e.clientY - numCenterY;
+          const distance = Math.sqrt(dx * dx + dy * dy);
+          const maxDistance = 104;
+
+          if (distance < maxDistance) {
+            // Calculate fish-eye distortion
+            const distortionFactor = 0.35;
+            const normalizedDist = distance / maxDistance;
+            const distortion = 1 - Math.pow(normalizedDist, 2);
+
+            // Calculate new position with fish-eye distortion
+            const angle = Math.atan2(dy, dx);
+            const distortedDistance = distance * (1 - distortion * distortionFactor);
+            const newDx = Math.cos(angle) * distortedDistance - dx;
+            const newDy = Math.sin(angle) * distortedDistance - dy;
+
+            // Calculate scale based on distance
+            const scale = 1 + distortion;
+
+            number.style.transform = `translate(${newDx}px, ${newDy}px) scale(${scale})`;
+            number.style.zIndex = Math.floor(distortion * 10);
+          } else {
+            number.style.transform = '';
+            number.style.zIndex = '';
+          }
+        });
+      } else {
+        resetNumberTransforms();
+      }
+    }
+
+    function resetNumberTransforms() {
       const numbers = document.querySelectorAll('.number-point:not(.selected)');
       numbers.forEach(number => {
-        const numRect = number.getBoundingClientRect();
-        const numCenterX = numRect.left + numRect.width / 2;
-        const numCenterY = numRect.top + numRect.height / 2;
+        number.style.transform = '';
+        number.style.zIndex = '';
+      });
+    }
 
-        const dx = e.clientX - numCenterX;
-        const dy = e.clientY - numCenterY;
-        const distance = Math.sqrt(dx * dx + dy * dy);
-        const maxDistance = 104;
+    function resetBinContents() {
+      const bins = document.querySelectorAll('.bin-content');
+      bins.forEach(bin => {
+        bin.textContent = '';
+      });
+    }
 
-        if (distance < maxDistance) {
-          // Calculate fish-eye distortion
-          const distortionFactor = 0.35;
-          const normalizedDist = distance / maxDistance;
-          const distortion = 1 - Math.pow(normalizedDist, 2);
+    async function transitionToNewFile() {
+      const terminal = document.getElementById('terminal');
+      const calendar = document.getElementById('calendarFlip');
+      const currentPage = document.getElementById('currentPage');
+      const nextPage = document.getElementById('nextPage');
 
-          // Calculate new position with fish-eye distortion
-          const angle = Math.atan2(dy, dx);
-          const distortedDistance = distance * (1 - distortion * distortionFactor);
-          const newDx = Math.cos(angle) * distortedDistance - dx;
-          const newDy = Math.sin(angle) * distortedDistance - dy;
+      // Get current and next file names
+      const oldFileName = currentFileName;
+      const newFileName = getRandomFileName();
 
-          // Calculate scale based on distance
-          const scale = 1 + distortion;
+      // Setup calendar pages
+      currentPage.textContent = oldFileName;
+      nextPage.textContent = newFileName;
+      nextPage.classList.add('next');
 
-          number.style.transform = `translate(${newDx}px, ${newDy}px) scale(${scale})`;
-          number.style.zIndex = Math.floor(distortion * 10);
-        } else {
-          number.style.transform = '';
-          number.style.zIndex = '';
+      // CRT off effect
+      terminal.classList.add('off');
+      await new Promise(resolve => setTimeout(resolve, 400));
+
+      // Show calendar
+      calendar.style.display = 'block';
+      await new Promise(resolve => setTimeout(resolve, 100));
+
+      // Flip animation
+      currentPage.classList.add('flipping');
+      await new Promise(resolve => setTimeout(resolve, 1200));
+
+      // Hide calendar
+      calendar.style.display = 'none';
+      currentPage.classList.remove('flipping');
+      nextPage.classList.remove('next');
+
+      // Update file name
+      currentFileName = newFileName;
+      document.getElementById('fileName').textContent = `File Name: ${currentFileName}`;
+
+      // Reset everything
+      refinedCount = 0;
+      correctRefinements = 0;
+      resetBinContents();
+      populateGrid();
+      updateProgress();
+
+      // CRT on effect
+      terminal.classList.remove('off');
+      terminal.classList.add('on');
+      await new Promise(resolve => setTimeout(resolve, 400));
+      terminal.classList.remove('on');
+    }
+
+    function startNewBatch() {
+      transitionToNewFile();
+    }
+
+    function setupEventListeners() {
+      const field = document.getElementById('numbersField');
+      if (!field) return;
+
+      window.addEventListener('resize', resizeCanvas);
+      field.addEventListener('contextmenu', e => e.preventDefault());
+      field.addEventListener('mousedown', e => {
+        startDrawing(e);
+        if (!isDrawing) {
+          startDragging(e);
         }
       });
-    } else {
-      resetNumberTransforms();
+      field.addEventListener('mousemove', e => {
+        draw(e);
+        updateDragPosition(e);
+        updateCursorLens(e);
+      });
+      document.addEventListener('mouseup', e => {
+        endDrawing(e);
+        endDragging(e);
+      });
+      document.addEventListener('mousemove', updateCursorLens);
+      document.addEventListener('mouseleave', () => {
+        resetNumberTransforms();
+        endDrawing();
+      });
     }
-  }
 
-  function resetNumberTransforms() {
-    const numbers = document.querySelectorAll('.number-point:not(.selected)');
-    numbers.forEach(number => {
-      number.style.transform = '';
-      number.style.zIndex = '';
+    // Initialize everything when the DOM is loaded
+    document.addEventListener('DOMContentLoaded', function () {
+      initialize();
+      setupEventListeners();
+      updateFileName();
+      populateGrid();
+      updateProgress();
     });
-  }
-
-  function resetBinContents() {
-    const bins = document.querySelectorAll('.bin-content');
-    bins.forEach(bin => {
-      bin.textContent = '';
-    });
-  }
-
-  async function transitionToNewFile() {
-    const terminal = document.getElementById('terminal');
-    const calendar = document.getElementById('calendarFlip');
-    const currentPage = document.getElementById('currentPage');
-    const nextPage = document.getElementById('nextPage');
-
-    // Get current and next file names
-    const oldFileName = currentFileName;
-    const newFileName = getRandomFileName();
-
-    // Setup calendar pages
-    currentPage.textContent = oldFileName;
-    nextPage.textContent = newFileName;
-    nextPage.classList.add('next');
-
-    // CRT off effect
-    terminal.classList.add('off');
-    await new Promise(resolve => setTimeout(resolve, 400));
-
-    // Show calendar
-    calendar.style.display = 'block';
-    await new Promise(resolve => setTimeout(resolve, 100));
-
-    // Flip animation
-    currentPage.classList.add('flipping');
-    await new Promise(resolve => setTimeout(resolve, 1200));
-
-    // Hide calendar
-    calendar.style.display = 'none';
-    currentPage.classList.remove('flipping');
-    nextPage.classList.remove('next');
-
-    // Update file name
-    currentFileName = newFileName;
-    document.getElementById('fileName').textContent = `File Name: ${currentFileName}`;
-
-    // Reset everything
-    refinedCount = 0;
-    correctRefinements = 0;
-    resetBinContents();
-    populateGrid();
-    updateProgress();
-
-    // CRT on effect
-    terminal.classList.remove('off');
-    terminal.classList.add('on');
-    await new Promise(resolve => setTimeout(resolve, 400));
-    terminal.classList.remove('on');
-  }
-
-  function startNewBatch() {
-    transitionToNewFile();
-  }
-
-  function setupEventListeners() {
-    const field = document.getElementById('numbersField');
-    if (!field) return;
-
-    window.addEventListener('resize', resizeCanvas);
-    field.addEventListener('contextmenu', e => e.preventDefault());
-    field.addEventListener('mousedown', e => {
-      startDrawing(e);
-      if (!isDrawing) {
-        startDragging(e);
-      }
-    });
-    field.addEventListener('mousemove', e => {
-      draw(e);
-      updateDragPosition(e);
-      updateCursorLens(e);
-    });
-    document.addEventListener('mouseup', e => {
-      endDrawing(e);
-      endDragging(e);
-    });
-    document.addEventListener('mousemove', updateCursorLens);
-    document.addEventListener('mouseleave', () => {
-      resetNumberTransforms();
-      endDrawing();
-    });
-  }
-
-  // Initialize everything when the DOM is loaded
-  document.addEventListener('DOMContentLoaded', function () {
-    initialize();
-    setupEventListeners();
-    updateFileName();
-    populateGrid();
-    updateProgress();
-  });
-</script>
+  </script>
 </body>
+
 </html>
